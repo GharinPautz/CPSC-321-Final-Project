@@ -18,6 +18,8 @@
 		89CA374C256CBA1A00B06FBD /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA374B256CBA1A00B06FBD /* CreateAccountViewController.swift */; };
 		89CA374F256CBA5C00B06FBD /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA374E256CBA5C00B06FBD /* HomeScreenViewController.swift */; };
 		89CA3752256CBA8600B06FBD /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA3751256CBA8600B06FBD /* SurveyViewController.swift */; };
+		89CA3756256CC44200B06FBD /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA3755256CC44200B06FBD /* ReviewViewController.swift */; };
+		89CA3759256CC47800B06FBD /* DestinationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA3758256CC47800B06FBD /* DestinationDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		89CA374B256CBA1A00B06FBD /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		89CA374E256CBA5C00B06FBD /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		89CA3751256CBA8600B06FBD /* SurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
+		89CA3755256CC44200B06FBD /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		89CA3758256CC47800B06FBD /* DestinationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,8 @@
 				89CA374B256CBA1A00B06FBD /* CreateAccountViewController.swift */,
 				89CA374E256CBA5C00B06FBD /* HomeScreenViewController.swift */,
 				89CA3751256CBA8600B06FBD /* SurveyViewController.swift */,
+				89CA3755256CC44200B06FBD /* ReviewViewController.swift */,
+				89CA3758256CC47800B06FBD /* DestinationDetailViewController.swift */,
 			);
 			path = CPSC321Project;
 			sourceTree = "<group>";
@@ -155,9 +161,11 @@
 			files = (
 				25955178256CBB3D00F2721A /* DestinationTableViewController.swift in Sources */,
 				2595517A256CBB9000F2721A /* DestinationTableViewCell.swift in Sources */,
-				2567C268255E4E7E001A68CE /* ViewController.swift in Sources */,
+				89CA3756256CC44200B06FBD /* ReviewViewController.swift in Sources */,
+				2567C268255E4E7E001A68CE /* LoginViewController.swift in Sources */,
 				89CA374C256CBA1A00B06FBD /* CreateAccountViewController.swift in Sources */,
 				2567C268255E4E7E001A68CE /* LoginViewController.swift in Sources */,
+				89CA3759256CC47800B06FBD /* DestinationDetailViewController.swift in Sources */,
 				2567C264255E4E7E001A68CE /* AppDelegate.swift in Sources */,
 				2567C266255E4E7E001A68CE /* SceneDelegate.swift in Sources */,
 				89CA3752256CBA8600B06FBD /* SurveyViewController.swift in Sources */,

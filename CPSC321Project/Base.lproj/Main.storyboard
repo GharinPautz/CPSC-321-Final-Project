@@ -537,7 +537,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hlP-tj-czT">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="eCA-TU-eUS" customClass="DestinationTableViewCell" customModule="CPSC321Project" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
@@ -547,7 +547,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Kbx-DO-hXY">
-                                                    <rect key="frame" x="20" y="11.5" width="114" height="20.5"/>
+                                                    <rect key="frame" x="20" y="11.5" width="113.5" height="20.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m5Y-lw-zgX">
                                                             <rect key="frame" x="0.0" y="0.0" width="12" height="20.5"/>
@@ -556,7 +556,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XxA-Db-okb">
-                                                            <rect key="frame" x="27" y="0.0" width="87" height="20.5"/>
+                                                            <rect key="frame" x="27" y="0.0" width="86.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -573,24 +573,24 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="1bl-v4-QvO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="hlP-tj-czT" firstAttribute="top" secondItem="1bl-v4-QvO" secondAttribute="top" id="3Yo-7T-T1R"/>
                             <constraint firstItem="1bl-v4-QvO" firstAttribute="bottom" secondItem="hlP-tj-czT" secondAttribute="bottom" id="6kk-kO-PtR"/>
                             <constraint firstItem="1bl-v4-QvO" firstAttribute="trailing" secondItem="hlP-tj-czT" secondAttribute="trailing" id="ce9-gb-mnP"/>
                             <constraint firstItem="hlP-tj-czT" firstAttribute="leading" secondItem="1bl-v4-QvO" secondAttribute="leading" id="zFg-Cw-dBS"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="1bl-v4-QvO"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1qc-82-ufQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3055.072463768116" y="128.57142857142856"/>
         </scene>
-        <!--View Controller-->
+        <!--Destination Detail View Controller-->
         <scene sceneID="lJE-2d-wis">
             <objects>
-                <viewController id="fyP-BP-JBV" sceneMemberID="viewController">
+                <viewController id="fyP-BP-JBV" customClass="DestinationDetailViewController" customModule="CPSC321Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DlD-9Z-Bpq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -616,7 +616,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i6o-T4-nKl">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i6o-T4-nKl">
                                         <rect key="frame" x="0.0" y="756" width="382" height="30"/>
                                         <state key="normal" title="Next"/>
                                     </button>
@@ -629,24 +629,24 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="pSb-pH-dbE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="HvI-tP-oM6" firstAttribute="top" secondItem="pSb-pH-dbE" secondAttribute="top" constant="16" id="2f6-2a-p6q"/>
                             <constraint firstItem="HvI-tP-oM6" firstAttribute="leading" secondItem="pSb-pH-dbE" secondAttribute="leading" constant="16" id="LfK-QI-meV"/>
                             <constraint firstItem="pSb-pH-dbE" firstAttribute="trailing" secondItem="HvI-tP-oM6" secondAttribute="trailing" constant="16" id="ibU-U7-ZN7"/>
                             <constraint firstItem="pSb-pH-dbE" firstAttribute="bottom" secondItem="HvI-tP-oM6" secondAttribute="bottom" constant="16" id="wLS-aP-JHR"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="pSb-pH-dbE"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zIc-E6-8GQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3783" y="126"/>
         </scene>
-        <!--View Controller-->
+        <!--Review View Controller-->
         <scene sceneID="nmz-gI-Gzo">
             <objects>
-                <viewController id="s9q-o8-hQQ" sceneMemberID="viewController">
+                <viewController id="s9q-o8-hQQ" customClass="ReviewViewController" customModule="CPSC321Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ezk-md-UzY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -731,13 +731,13 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="V8n-Fg-Fm4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="V8n-Fg-Fm4" firstAttribute="trailing" secondItem="7OQ-eo-bjd" secondAttribute="trailing" constant="16" id="hfN-xP-xic"/>
                             <constraint firstItem="7OQ-eo-bjd" firstAttribute="leading" secondItem="V8n-Fg-Fm4" secondAttribute="leading" constant="16" id="lJh-CK-CsX"/>
                             <constraint firstItem="7OQ-eo-bjd" firstAttribute="top" secondItem="V8n-Fg-Fm4" secondAttribute="top" constant="16" id="y7E-Jo-egP"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="V8n-Fg-Fm4"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jbO-gt-bq5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
