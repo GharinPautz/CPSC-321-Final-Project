@@ -10,13 +10,25 @@ import UIKit
 
 class CreateAccountViewController: UIViewController {
 
+    @IBOutlet var usernameTextField: UITextField!
+    @IBOutlet var passwordTextField: UITextField!
+    @IBOutlet var firstNameTextField: UITextField!
+    @IBOutlet var lastNameTextField: UITextField!
+    @IBOutlet var addressTextField: UITextField!
+    @IBOutlet var cityTextField: UITextField!
+    @IBOutlet var stateTextField: UITextField!
+    @IBOutlet var zipcodeTextField: UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func createButtonPressed(_ sender: UIButton) {
+    }
+    
     /*
     // MARK: - Navigation
 

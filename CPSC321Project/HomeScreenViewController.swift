@@ -17,6 +17,16 @@ class HomeScreenViewController: UIViewController {
     }
     
 
+    @IBAction func findDestinationButtonPressed(_ sender: UIButton) {
+    }
+    
+    
+    @IBAction func reviewDestinationButtonPressed(_ sender: UIButton) {
+    }
+    
+    
+    @IBAction func viewPastResultsButtonPressed(_ sender: UIButton) {
+    }
     /*
     // MARK: - Navigation
 
