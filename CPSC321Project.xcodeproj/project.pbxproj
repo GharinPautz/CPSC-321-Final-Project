@@ -13,6 +13,8 @@
 		2567C26B255E4E7E001A68CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2567C269255E4E7E001A68CE /* Main.storyboard */; };
 		2567C26D255E4E7F001A68CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2567C26C255E4E7F001A68CE /* Assets.xcassets */; };
 		2567C270255E4E7F001A68CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2567C26E255E4E7F001A68CE /* LaunchScreen.storyboard */; };
+		25955178256CBB3D00F2721A /* DestinationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25955177256CBB3D00F2721A /* DestinationTableViewController.swift */; };
+		2595517A256CBB9000F2721A /* DestinationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25955179256CBB9000F2721A /* DestinationTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		2567C26C255E4E7F001A68CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2567C26F255E4E7F001A68CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2567C271255E4E7F001A68CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25955177256CBB3D00F2721A /* DestinationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationTableViewController.swift; sourceTree = "<group>"; };
+		25955179256CBB9000F2721A /* DestinationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				2567C26C255E4E7F001A68CE /* Assets.xcassets */,
 				2567C26E255E4E7F001A68CE /* LaunchScreen.storyboard */,
 				2567C271255E4E7F001A68CE /* Info.plist */,
+				25955177256CBB3D00F2721A /* DestinationTableViewController.swift */,
+				25955179256CBB9000F2721A /* DestinationTableViewCell.swift */,
 			);
 			path = CPSC321Project;
 			sourceTree = "<group>";
@@ -138,6 +144,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25955178256CBB3D00F2721A /* DestinationTableViewController.swift in Sources */,
+				2595517A256CBB9000F2721A /* DestinationTableViewCell.swift in Sources */,
 				2567C268255E4E7E001A68CE /* ViewController.swift in Sources */,
 				2567C264255E4E7E001A68CE /* AppDelegate.swift in Sources */,
 				2567C266255E4E7E001A68CE /* SceneDelegate.swift in Sources */,
