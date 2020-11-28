@@ -9,6 +9,7 @@
 import UIKit
 
 class LoginViewController: UIViewController {
+    var dbHelper = DatabaseHelper()
 
     @IBOutlet var usernameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
@@ -22,6 +23,20 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func createAccountButtonPressed(_ sender: UIButton) {
+        //dbHelper.createAccountsTable()
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "CreateAccountSegue" {
+                print("In create account segue")
+                
+                if let createAccountVC = segue.destination as? CreateAccountViewController {
+                    createAccountVC.dbHelper = dbHelper
+                }
+            }
+        }
     }
 }
 
