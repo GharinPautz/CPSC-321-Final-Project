@@ -9,7 +9,9 @@
 import UIKit
 
 class HomeScreenViewController: UIViewController {
+    var dbHelper: DatabaseHelper? = nil
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,6 +24,7 @@ class HomeScreenViewController: UIViewController {
     
     
     @IBAction func reviewDestinationButtonPressed(_ sender: UIButton) {
+        dbHelper?.createFeedbackSurveyTable()
     }
     
     
@@ -36,5 +39,17 @@ class HomeScreenViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "reviewSegue" {
+                print("In review segue")
+                
+                if let reviewVC = segue.destination as? ReviewViewController {
+                    reviewVC.dbHelper = dbHelper
+                }
+            } 
+        }
+    }
 
 }

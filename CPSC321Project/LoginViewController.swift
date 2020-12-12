@@ -23,7 +23,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func createAccountButtonPressed(_ sender: UIButton) {
-        //dbHelper.createAccountsTable()
+        dbHelper.createAccountsTable()
         
     }
     
@@ -34,6 +34,11 @@ class LoginViewController: UIViewController {
                 
                 if let createAccountVC = segue.destination as? CreateAccountViewController {
                     createAccountVC.dbHelper = dbHelper
+                }
+            } else if identifier == "loginSegue" {
+                print("in login segue")
+                if let homeScreenVC = segue.destination as? HomeScreenViewController {
+                    homeScreenVC.dbHelper = dbHelper
                 }
             }
         }
