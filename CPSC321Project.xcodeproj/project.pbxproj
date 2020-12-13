@@ -16,6 +16,7 @@
 		2567C270255E4E7F001A68CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2567C26E255E4E7F001A68CE /* LaunchScreen.storyboard */; };
 		25955178256CBB3D00F2721A /* DestinationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25955177256CBB3D00F2721A /* DestinationTableViewController.swift */; };
 		2595517A256CBB9000F2721A /* DestinationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25955179256CBB9000F2721A /* DestinationTableViewCell.swift */; };
+		25C66E6A2585DC8C00083F61 /* DestinationInsertionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C66E692585DC8C00083F61 /* DestinationInsertionHelper.swift */; };
 		89CA374C256CBA1A00B06FBD /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA374B256CBA1A00B06FBD /* CreateAccountViewController.swift */; };
 		89CA374F256CBA5C00B06FBD /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA374E256CBA5C00B06FBD /* HomeScreenViewController.swift */; };
 		89CA3752256CBA8600B06FBD /* ExploreDestinationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA3751256CBA8600B06FBD /* ExploreDestinationsViewController.swift */; };
@@ -35,6 +36,7 @@
 		2567C271255E4E7F001A68CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25955177256CBB3D00F2721A /* DestinationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationTableViewController.swift; sourceTree = "<group>"; };
 		25955179256CBB9000F2721A /* DestinationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationTableViewCell.swift; sourceTree = "<group>"; };
+		25C66E692585DC8C00083F61 /* DestinationInsertionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationInsertionHelper.swift; sourceTree = "<group>"; };
 		89CA374B256CBA1A00B06FBD /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		89CA374E256CBA5C00B06FBD /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		89CA3751256CBA8600B06FBD /* ExploreDestinationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreDestinationsViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				89CA3755256CC44200B06FBD /* ReviewViewController.swift */,
 				89CA3758256CC47800B06FBD /* DestinationDetailViewController.swift */,
 				2544E97C2571EE1D001A7B42 /* DatabaseHelper.swift */,
+				25C66E692585DC8C00083F61 /* DestinationInsertionHelper.swift */,
 			);
 			path = CPSC321Project;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 				2567C268255E4E7E001A68CE /* LoginViewController.swift in Sources */,
 				2544E97D2571EE1D001A7B42 /* DatabaseHelper.swift in Sources */,
 				89CA374C256CBA1A00B06FBD /* CreateAccountViewController.swift in Sources */,
+				25C66E6A2585DC8C00083F61 /* DestinationInsertionHelper.swift in Sources */,
 				2567C268255E4E7E001A68CE /* LoginViewController.swift in Sources */,
 				89CA3759256CC47800B06FBD /* DestinationDetailViewController.swift in Sources */,
 				2567C264255E4E7E001A68CE /* AppDelegate.swift in Sources */,

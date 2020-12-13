@@ -10,6 +10,8 @@ import UIKit
 
 class HomeScreenViewController: UIViewController {
     var dbHelper: DatabaseHelper? = nil
+    
+    
 
     
     override func viewDidLoad() {
@@ -24,7 +26,7 @@ class HomeScreenViewController: UIViewController {
     
     
     @IBAction func reviewDestinationButtonPressed(_ sender: UIButton) {
-        dbHelper?.createFeedbackSurveyTable()
+        dbHelper?.createReviewsTable()
     }
     
     

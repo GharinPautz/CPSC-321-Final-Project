@@ -27,7 +27,7 @@ class DatabaseHelper {
     func openDatabase() -> OpaquePointer? {
         var db: OpaquePointer?
         if sqlite3_open(path, &db) == SQLITE_OK {
-            print("Successfully opened connection to database at \(path)")
+            print("Successfully opened connection to database at \(String(describing: path))")
             return db
         } else {
             print("Unable to open database.")
@@ -105,18 +105,19 @@ class DatabaseHelper {
     func createDestinationsTable() {
         let createDestinationsTableStr = """
         CREATE TABLE IF NOT EXISTS Destinations(
-            city VARCHAR(15),
-            country VARCHAR(15),
-            region ENUM('Africa', 'Asia', 'Central America', 'Europe', 'Middle East', 'North America', 'Oceania', 'South America'),
-            has_beaches BOOL,
-            has_mountains BOOL,
-            is_modern BOOL,
-            is_historic BOOL,
-            is_adventurous BOOL,
-            is_relaxing BOOL,
-            is_family_friendly BOOL,
-            need_travel_companion BOOL,
-            PRIMARY KEY (city, country)
+            city TEXT NOT NULL,
+            country_code TEXT NOT NULL,
+            region TEXT NOT NULL,
+            has_beaches INTEGER NOT NULL,
+            has_mountains INTEGER NOT NULL,
+            is_modern INTEGER NOT NULL,
+            is_historic INTEGER NOT NULL,
+            is_adventurous INTEGER NOT NULL,
+            is_relaxing INTEGER NOT NULL,
+            is_family_friendly INTEGER NOT NULL,
+            need_travel_companion INTEGER NOT NULL,
+            avg_cost INTEGER NOT NULL,
+            PRIMARY KEY (city, country_code)
             );
         """
         
@@ -136,16 +137,16 @@ class DatabaseHelper {
         sqlite3_finalize(createTableStatement)
     }
     
-    func insertDestination(city: String, country: String, region: String, has_beaches: Bool, has_mountains: Bool, is_modern: Bool, is_historic: Bool, is_adventurous: Bool, is_relaxing: Bool, is_family_friendly: Bool, need_travel_companion: Bool) {
+    func insertDestination(city: String, country_code: String, region: String, has_beaches: Int, has_mountains: Int, is_modern: Int, is_historic: Int, is_adventurous: Int, is_relaxing: Int, is_family_friendly: Int, need_travel_companion: Int, avg_cost: Int) {
         print("Insert in databse helper called")
         
-        let insertStatementString = "INSERT INTO Destinations (city, country, region, has_beaches, has_mountains, is_modern, is_historic, is_adventurous, is_relaxing, is_family_friendly, need_travel_companion) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
+        let insertStatementString = "INSERT INTO Destinations VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
         
         var insertStatement: OpaquePointer?
         
         if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
             let city: NSString = NSString(string: city)
-            let country: NSString = NSString(string: country)
+            let countryCode: NSString = NSString(string: country_code)
             let region: NSString = NSString(string: region)
             let hasBeaches: NSNumber = NSNumber(value: has_beaches)
             let hasMountains: NSNumber = NSNumber(value: has_mountains)
@@ -155,9 +156,10 @@ class DatabaseHelper {
             let isRelaxing: NSNumber = NSNumber(value: is_relaxing)
             let isFamilyFriendly: NSNumber = NSNumber(value: is_family_friendly)
             let needTravelCompanion: NSNumber = NSNumber(value: need_travel_companion)
+            let avgCost: NSNumber = NSNumber(value: avg_cost)
             
             sqlite3_bind_text(insertStatement, 1, city.utf8String, -1, nil)
-            sqlite3_bind_text(insertStatement, 2, country.utf8String, -1, nil)
+            sqlite3_bind_text(insertStatement, 2, countryCode.utf8String, -1, nil)
             sqlite3_bind_text(insertStatement, 3, region.utf8String, -1, nil)
             sqlite3_bind_int(insertStatement, 4, Int32(truncating: hasBeaches))
             sqlite3_bind_int(insertStatement, 5, Int32(truncating: hasMountains))
@@ -167,6 +169,7 @@ class DatabaseHelper {
             sqlite3_bind_int(insertStatement, 9, Int32(truncating: isRelaxing))
             sqlite3_bind_int(insertStatement, 10, Int32(truncating: isFamilyFriendly))
             sqlite3_bind_int(insertStatement, 11, Int32(truncating: needTravelCompanion))
+            sqlite3_bind_int(insertStatement, 12, Int32(truncating: avgCost))
 
 
             if sqlite3_step(insertStatement) == SQLITE_DONE {
@@ -183,22 +186,21 @@ class DatabaseHelper {
 
     
     
-    func createFeedbackSurveyTable() {
-        let createFeedbackSurveyTableStr = """
-        CREATE TABLE IF NOT EXISTS Feedback_Survey(
-            survey_id INT AUTO_INCREMENT,
-            destination_city VARCHAR(15) NOT NULL,
-            destination_country VARCHAR(15) NOT NULL,
-            rating FLOAT NOT NULL,
-            review TEXT,
-            PRIMARY KEY(survey_id),
-            FOREIGN KEY(destination_city, destination_country) REFERENCES Destinations(city, country) ON DELETE CASCADE
+    func createReviewsTable() {
+        let createReviewsTableStr = """
+        CREATE TABLE IF NOT EXISTS Review(
+            survey_id INTEGER PRIMARY KEY AUTOINCREMENT,
+            destination_city TEXT NOT NULL,
+            destination_country_code TEXT NOT NULL,
+            rating REAL NOT NULL,
+            review TEXT NOT NULL,
+            FOREIGN KEY(destination_city, destination_country_code) REFERENCES Destinations(city, country_code) ON DELETE CASCADE
         );
         """
         
         var createTableStatement: OpaquePointer?
         
-        if sqlite3_prepare_v2(db, createFeedbackSurveyTableStr, -1, &createTableStatement, nil) == SQLITE_OK {
+        if sqlite3_prepare_v2(db, createReviewsTableStr, -1, &createTableStatement, nil) == SQLITE_OK {
           
           if sqlite3_step(createTableStatement) == SQLITE_DONE {
             print("\nFeedback Survey table created.")
@@ -212,17 +214,17 @@ class DatabaseHelper {
         sqlite3_finalize(createTableStatement)
     }
     
-    func insertFeedbackSurvey(destination_city: String, destination_country: String, rating: Float, review: String) {
+    func insertReview(destination_city: String, destination_country_code: String, rating: Float, review: String) {
         print("Insert in databse helper called")
         
-        let insertStatementString = "INSERT INTO Feedback_Survey (destination_city, destination_country, rating, review) VALUES (?, ?, ?, ?);"
+        let insertStatementString = "INSERT INTO Review (survey_id, destination_city, destination_country_code, rating, review) VALUES (null, ?, ?, ?, ?);"
         
         var insertStatement: OpaquePointer?
         
         if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
             //let surveyID: Int32 = Int32(survey_id)
             let city: NSString = NSString(string: destination_city)
-            let country: NSString = NSString(string: destination_country)
+            let country: NSString = NSString(string: destination_country_code)
             let rating: NSNumber = NSNumber(value: rating)
             let review: NSString = NSString(string: review)
         
@@ -245,4 +247,25 @@ class DatabaseHelper {
       sqlite3_finalize(insertStatement)
     }
     
+    // Use this for whenever you want to drop a table... just change string
+    func dropTable() {
+        let dropTableString = """
+        DROP TABLE Destinations;
+        """
+        
+        var createTableStatement: OpaquePointer?
+        
+        if sqlite3_prepare_v2(db, dropTableString, -1, &createTableStatement, nil) == SQLITE_OK {
+          
+          if sqlite3_step(createTableStatement) == SQLITE_DONE {
+            print("\nDropped table successfuly")
+          } else {
+            print("\nCould not drop table.")
+          }
+        } else {
+          print("\nDROP TABLE statement could not be prepared.")
+        }
+       
+        sqlite3_finalize(createTableStatement)
+    }
 }

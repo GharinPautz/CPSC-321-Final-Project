@@ -31,7 +31,7 @@ class ReviewViewController: UIViewController {
         if let city = cityTextField.text, let country = countryTextField.text, let review = reviewTextField.text {
             if let db = dbHelper {
             
-                db.insertFeedbackSurvey(destination_city: city, destination_country: country, rating: rating, review: review)
+                db.insertReview(destination_city: city, destination_country_code: country, rating: rating, review: review)
             }
         }
         
