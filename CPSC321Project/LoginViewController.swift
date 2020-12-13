@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
     @IBOutlet var usernameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     
+    // Startup for app
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -57,35 +58,16 @@ class LoginViewController: UIViewController {
     
     func insertDestinations() {
         // region: ANY
-        for (region, value) in destinationHelper.comprehensiveDestinationsDictionary {
+        for (region, countries) in destinationHelper.comprehensiveDestinationsDictionary {
             
             // country_code: ANY
-            for (country, cities) in value {
+            for (country, cities) in countries {
                 
                 for city in cities {
                     dbHelper.insertDestination(city: city, country_code: country, region: region, has_beaches: getRandomVal(max: 2), has_mountains: getRandomVal(max: 2), is_modern: getRandomVal(max: 2), is_historic: getRandomVal(max: 2), is_adventurous: getRandomVal(max: 2), is_relaxing: getRandomVal(max: 2), is_family_friendly: getRandomVal(max: 2), need_travel_companion: getRandomVal(max: 2), avg_cost: getRandomVal(max: 11))
                 }
             }
         }
-        
-        /*
-        for country in destinationHelper.northAmericanCountries {
-            switch country {
-            case "CA":
-                for city in destinationHelper.canadianCities {
-                    dbHelper.insertDestination(city: city, country_code: country, region: destinationHelper.region1, has_beaches: getRandomVal(max: 2), has_mountains: getRandomVal(max: 2), is_modern: getRandomVal(max: 2), is_historic: getRandomVal(max: 2), is_adventurous: getRandomVal(max: 2), is_relaxing: getRandomVal(max: 2), is_family_friendly: getRandomVal(max: 2), need_travel_companion: getRandomVal(max: 2), avg_cost: getRandomVal(max: 11))
-                }
-            case "US":
-                for city in destinationHelper.americanCities {
-                    dbHelper.insertDestination(city: city, country_code: country, region: destinationHelper.region1, has_beaches: getRandomVal(max: 2), has_mountains: getRandomVal(max: 2), is_modern: getRandomVal(max: 2), is_historic: getRandomVal(max: 2), is_adventurous: getRandomVal(max: 2), is_relaxing: getRandomVal(max: 2), is_family_friendly: getRandomVal(max: 2), need_travel_companion: getRandomVal(max: 2), avg_cost: getRandomVal(max: 11))
-                }
-            default:
-                for city in destinationHelper.mexicanCities {
-                    dbHelper.insertDestination(city: city, country_code: country, region: destinationHelper.region1, has_beaches: getRandomVal(max: 2), has_mountains: getRandomVal(max: 2), is_modern: getRandomVal(max: 2), is_historic: getRandomVal(max: 2), is_adventurous: getRandomVal(max: 2), is_relaxing: getRandomVal(max: 2), is_family_friendly: getRandomVal(max: 2), need_travel_companion: getRandomVal(max: 2), avg_cost: getRandomVal(max: 11))
-                }
-            }
-        }
- */
     }
     
     func getRandomVal(max: Int) -> Int {
