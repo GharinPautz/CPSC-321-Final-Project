@@ -17,7 +17,6 @@ class CreateAccountViewController: UIViewController {
     @IBOutlet var lastNameTextField: UITextField!
     @IBOutlet var addressTextField: UITextField!
     @IBOutlet var cityTextField: UITextField!
-    @IBOutlet var stateTextField: UITextField!
     @IBOutlet var countryTextField: UITextField!
     @IBOutlet var zipcodeTextField: UITextField!
     
@@ -29,10 +28,10 @@ class CreateAccountViewController: UIViewController {
     }
     
     @IBAction func createButtonPressed(_ sender: UIButton) {
-        if let username = usernameTextField.text, let password = passwordTextField.text, let name = firstNameTextField.text, let address = addressTextField.text, let city = cityTextField.text, let province = stateTextField.text, let country = countryTextField.text, let zipCode = zipcodeTextField.text {
+        if let username = usernameTextField.text, let password = passwordTextField.text, let firstName = firstNameTextField.text, let lastName = lastNameTextField.text, let address = addressTextField.text, let city = cityTextField.text, let countryCode = countryTextField.text, let zipCode = zipcodeTextField.text {
             
             if let db = dbHelper {
-                db.insertAccount(username: username, password: password, name: name, city: city, province: province, address: address, country: country, zipCode: Int(zipCode)!)
+                db.insertAccount(username: username, password: password, firstName: firstName, lastName: lastName, address: address, city: city, countryCode: countryCode, zipCode: Int(zipCode)!)
             }
         }
     }

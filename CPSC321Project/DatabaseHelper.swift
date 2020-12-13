@@ -38,13 +38,13 @@ class DatabaseHelper {
     func createAccountsTable() {
         let createAccountsTableString = """
         CREATE TABLE IF NOT EXISTS Account(
-        username CHAR(255) PRIMARY KEY NOT NULL,
-        password CHAR(20) NOT NULL,
-        name CHAR(255) NOT NULL,
-        city CHAR(255) NOT NULL,
-        province CHAR(255) NOT NULL,
-        address CHAR(255) NOT NULL,
-        country CHAR(255) NOT NULL,
+        username TEXT PRIMARY KEY NOT NULL,
+        password TEXT NOT NULL,
+        first_name TEXT NOT NULL,
+        last_name TEXT NOT NULL,
+        address TEXT NOT NULL,
+        city TEXT NOT NULL,
+        country_code TEXT NOT NULL,
         zip_code INT NOT NULL);
         """
         
@@ -64,31 +64,31 @@ class DatabaseHelper {
         sqlite3_finalize(createTableStatement)
     }
 
-    func insertAccount(username: String, password: String, name: String, city: String, province: String, address: String, country: String, zipCode: Int) {
+    func insertAccount(username: String, password: String, firstName: String, lastName: String, address: String, city: String, countryCode: String, zipCode: Int) {
         print("Insert in databse helper called")
         
-        let insertStatementString = "INSERT INTO Account (username, password, name, city, province, address, country, zip_code) VALUES (?, ?, ?, ?, ?, ?, ?, ?);"
+        let insertStatementString = "INSERT INTO Account (username, password, first_name, last_name, address, city, country_code, zip_code) VALUES (?, ?, ?, ?, ?, ?, ?, ?);"
         
         var insertStatement: OpaquePointer?
         
         if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
             let username: NSString = NSString(string: username)
             let password: NSString = NSString(string: password)
-            let name: NSString = NSString(string: name)
-            let city: NSString = NSString(string: city)
-            let province: NSString = NSString(string: province)
+            let first_name: NSString = NSString(string: firstName)
+            let last_name: NSString = NSString(string: lastName)
             let address: NSString = NSString(string: address)
-            let country: NSString = NSString(string: country)
-            let zip_code: Int32 = Int32(zipCode)
+            let city: NSString = NSString(string: city)
+            let country_code: NSString = NSString(string: countryCode)
+            let zip_code: NSNumber = NSNumber(value: zipCode)
         
             sqlite3_bind_text(insertStatement, 1, username.utf8String, -1, nil)
             sqlite3_bind_text(insertStatement, 2, password.utf8String, -1, nil)
-            sqlite3_bind_text(insertStatement, 3, name.utf8String, -1, nil)
-            sqlite3_bind_text(insertStatement, 4, city.utf8String, -1, nil)
-            sqlite3_bind_text(insertStatement, 5, province.utf8String, -1, nil)
-            sqlite3_bind_text(insertStatement, 6, address.utf8String, -1, nil)
-            sqlite3_bind_text(insertStatement, 7, country.utf8String, -1, nil)
-            sqlite3_bind_int(insertStatement, 8, zip_code)
+            sqlite3_bind_text(insertStatement, 3, first_name.utf8String, -1, nil)
+            sqlite3_bind_text(insertStatement, 4, last_name.utf8String, -1, nil)
+            sqlite3_bind_text(insertStatement, 5, address.utf8String, -1, nil)
+            sqlite3_bind_text(insertStatement, 6, city.utf8String, -1, nil)
+            sqlite3_bind_text(insertStatement, 7, country_code.utf8String, -1, nil)
+            sqlite3_bind_int(insertStatement, 8, Int32(truncating: zip_code))
        
             if sqlite3_step(insertStatement) == SQLITE_DONE {
                 print("\nSuccessfully inserted row.")
@@ -248,9 +248,30 @@ class DatabaseHelper {
     }
     
     // Use this for whenever you want to drop a table... just change string
-    func dropTable() {
+    func dropDestinationsTable() {
         let dropTableString = """
         DROP TABLE Destinations;
+        """
+        
+        var createTableStatement: OpaquePointer?
+        
+        if sqlite3_prepare_v2(db, dropTableString, -1, &createTableStatement, nil) == SQLITE_OK {
+          
+          if sqlite3_step(createTableStatement) == SQLITE_DONE {
+            print("\nDropped table successfuly")
+          } else {
+            print("\nCould not drop table.")
+          }
+        } else {
+          print("\nDROP TABLE statement could not be prepared.")
+        }
+       
+        sqlite3_finalize(createTableStatement)
+    }
+    
+    func dropAccountTable() {
+        let dropTableString = """
+        DROP TABLE Account;
         """
         
         var createTableStatement: OpaquePointer?

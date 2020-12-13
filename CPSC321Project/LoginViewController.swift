@@ -20,15 +20,15 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-         
-        dbHelper.dropTable()
-        destinationHelper.makeComprehensiveDestinationsDictionary()
-        dbHelper.createDestinationsTable()
-        dbHelper.insertDestination(city: "Kona", country_code: "US", region: "North America", has_beaches: 1, has_mountains: 1, is_modern: 1, is_historic: 1, is_adventurous: 1, is_relaxing: 1, is_family_friendly: 1, need_travel_companion: 0, avg_cost: 8)
-        insertDestinations()
- 
+        // KELLIE DO AFTER PULL
+        // Uncomment next line, run to make new account table, then delete this line
+        //dbHelper.dropAccountTable()
         
-        //print(destinationHelper.comprehensiveDestinationsDictionary)
+        // Set up destinations table
+        dbHelper.dropDestinationsTable()
+        dbHelper.createDestinationsTable()
+        destinationHelper.makeComprehensiveDestinationsDictionary()
+        insertDestinations()
     }
 
     @IBAction func loginButtonPressed(_ sender: UIButton) {
@@ -36,7 +36,6 @@ class LoginViewController: UIViewController {
     
     @IBAction func createAccountButtonPressed(_ sender: UIButton) {
         dbHelper.createAccountsTable()
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
