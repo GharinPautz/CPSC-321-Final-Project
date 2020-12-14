@@ -25,7 +25,7 @@ class DestinationTableViewCell: UITableViewCell {
     }
 
     func update(with destination: Destination) {
-        destinationNumberLabel.text = "1"
+        destinationNumberLabel.text = "\(destination.numInOrder!)."
         destinationNameLabel.text = "\(destination.city), \(destination.countryCode)"
     }
 }

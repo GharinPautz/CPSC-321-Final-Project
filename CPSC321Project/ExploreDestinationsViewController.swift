@@ -24,8 +24,6 @@ class ExploreDestinationsViewController: UIViewController, UIPickerViewDelegate,
     @IBOutlet var isRelaxingSwitch: UISwitch!
     @IBOutlet var isFamilyFriendlySwitch: UISwitch!
     @IBOutlet var hasTravelCompanionSwitch: UISwitch!
-    @IBOutlet var costDisplayLabel: UILabel!
-    @IBOutlet var costStepper: UIStepper!
     
     
     override func viewDidLoad() {
@@ -99,9 +97,6 @@ class ExploreDestinationsViewController: UIViewController, UIPickerViewDelegate,
             needTravelCompanionStr = " AND need_travel_companion = \(needTravelCompanion)"
             attributeArray.append(needTravelCompanionStr)
         }
-    
-        
-        //let cost = costStepper.value
         
         var queryStr = "SELECT * FROM Destinations WHERE region = '\(region)'"
         for attribute in attributeArray {
@@ -121,6 +116,9 @@ class ExploreDestinationsViewController: UIViewController, UIPickerViewDelegate,
                 if let destinationsArray = destinations {
                     if let destinationTableViewVC = segue.destination as? DestinationTableViewController {
                         destinationTableViewVC.destinations = destinationsArray
+                        if let db = dbHelper {
+                            destinationTableViewVC.dbHelper = db
+                        }
                     }
                 }
             }

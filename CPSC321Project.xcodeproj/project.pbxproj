@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2525304A2586E98900BCED3D /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252530492586E98900BCED3D /* Destination.swift */; };
+		2525304C25872C6300BCED3D /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2525304B25872C6300BCED3D /* Review.swift */; };
 		2544E97D2571EE1D001A7B42 /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2544E97C2571EE1D001A7B42 /* DatabaseHelper.swift */; };
 		2567C264255E4E7E001A68CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2567C263255E4E7E001A68CE /* AppDelegate.swift */; };
 		2567C266255E4E7E001A68CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2567C265255E4E7E001A68CE /* SceneDelegate.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		252530492586E98900BCED3D /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
+		2525304B25872C6300BCED3D /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		2544E97C2571EE1D001A7B42 /* DatabaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseHelper.swift; sourceTree = "<group>"; };
 		2567C260255E4E7E001A68CE /* CPSC321Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CPSC321Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2567C263255E4E7E001A68CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				2544E97C2571EE1D001A7B42 /* DatabaseHelper.swift */,
 				25C66E692585DC8C00083F61 /* DestinationInsertionHelper.swift */,
 				252530492586E98900BCED3D /* Destination.swift */,
+				2525304B25872C6300BCED3D /* Review.swift */,
 			);
 			path = CPSC321Project;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 				89CA3756256CC44200B06FBD /* ReviewViewController.swift in Sources */,
 				2567C268255E4E7E001A68CE /* LoginViewController.swift in Sources */,
 				2544E97D2571EE1D001A7B42 /* DatabaseHelper.swift in Sources */,
+				2525304C25872C6300BCED3D /* Review.swift in Sources */,
 				89CA374C256CBA1A00B06FBD /* CreateAccountViewController.swift in Sources */,
 				2525304A2586E98900BCED3D /* Destination.swift in Sources */,
 				25C66E6A2585DC8C00083F61 /* DestinationInsertionHelper.swift in Sources */,

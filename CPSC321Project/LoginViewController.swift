@@ -12,6 +12,7 @@ import SQLite3
 class LoginViewController: UIViewController {
     var dbHelper = DatabaseHelper()
     var destinationHelper = DestionationInsertionHelper()
+    var countryHelper = CountryInsertionHelper()
 
     @IBOutlet var usernameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
@@ -27,14 +28,17 @@ class LoginViewController: UIViewController {
         //destinationHelper.makeComprehensiveDestinationsDictionary()
         //insertDestinations()
         //dbHelper.createAccountsTable()
-        dbHelper.insertDestination(city: "Kona", country_code: "US", region: "North America", has_beaches: 1, has_mountains: 1, is_modern: 1, is_historic: 0, is_adventurous: 1, is_relaxing: 1, is_family_friendly: 1, need_travel_companion: 0, avg_cost: 8)
         dbHelper.dropDestinationsTable()
+        dbHelper.dropReviewsTable()
+        
         dbHelper.createDestinationsTable()
-        destinationHelper.makeComprehensiveDestinationsDictionary()
-        insertDestinations()
+        dbHelper.createCountryTable()
         dbHelper.createAccountsTable()
         dbHelper.createReviewsTable()
-
+        destinationHelper.makeComprehensiveDestinationsDictionary()
+        dbHelper.insertDestination(city: "Kona", country_code: "US", region: "North America", has_beaches: 1, has_mountains: 1, is_modern: 1, is_historic: 0, is_adventurous: 1, is_relaxing: 1, is_family_friendly: 1, need_travel_companion: 0, avg_cost: 8)
+        insertDestinations()
+        insertCountries()
 
     }
     
@@ -105,6 +109,12 @@ class LoginViewController: UIViewController {
     func getRandomVal(max: Int) -> Int {
         let num = Int(arc4random_uniform(UInt32(max)))
         return num
+    }
+    
+    func insertCountries() {
+        for (code, country) in countryHelper.countries {
+            dbHelper.insertCountry(countryCode: code, countryName: country)
+        }
     }
 }
 

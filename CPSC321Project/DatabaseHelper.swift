@@ -184,7 +184,55 @@ class DatabaseHelper {
       sqlite3_finalize(insertStatement)
     }
 
+    func createCountryTable() {
+        let createCountryTableStr = """
+        CREATE TABLE Country(
+            country_code TEXT PRIMARY KEY NOT NULL,
+            country_name TEXT NOT NULL,
+            FOREIGN KEY(country_code) REFERENCES Destinations(country_code) ON DELETE CASCADE);
+        """
+        var createTableStatement: OpaquePointer?
+         
+         if sqlite3_prepare_v2(db, createCountryTableStr, -1, &createTableStatement, nil) == SQLITE_OK {
+           
+           if sqlite3_step(createTableStatement) == SQLITE_DONE {
+             print("\nCountry table created.")
+           } else {
+             print("\nCountry table could not be created.")
+           }
+         } else {
+           print("\nCREATE TABLE statement could not be prepared.")
+         }
+        
+         sqlite3_finalize(createTableStatement)
+    }
     
+    func insertCountry(countryCode: String, countryName: String) {
+        print("Insert in databse helper called")
+        
+        let insertStatementString = "INSERT INTO Country VALUES (?, ?);"
+        
+        var insertStatement: OpaquePointer?
+        
+        if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
+            let city: NSString = NSString(string: countryCode)
+            let countryCode: NSString = NSString(string: countryName)
+            
+            sqlite3_bind_text(insertStatement, 1, city.utf8String, -1, nil)
+            sqlite3_bind_text(insertStatement, 2, countryCode.utf8String, -1, nil)
+
+            if sqlite3_step(insertStatement) == SQLITE_DONE {
+                print("\nSuccessfully inserted row.")
+            } else {
+                print("\nCould not insert row.")
+            }
+        } else {
+            print("\nINSERT statement could not be prepared.")
+        }
+      
+      sqlite3_finalize(insertStatement)
+    }
+
     
     func createReviewsTable() {
         let createReviewsTableStr = """
@@ -214,7 +262,7 @@ class DatabaseHelper {
         sqlite3_finalize(createTableStatement)
     }
     
-    func insertReview(destination_city: String, destination_country_code: String, rating: Float, review: String) {
+    func insertReview(destination_city: String, destination_country_code: String, rating: Int, review: String) {
         print("Insert in databse helper called")
         
         let insertStatementString = "INSERT INTO Review (survey_id, destination_city, destination_country_code, rating, review) VALUES (null, ?, ?, ?, ?);"
@@ -231,7 +279,7 @@ class DatabaseHelper {
             //sqlite3_bind_int(insertStatement, 1, surveyID)
             sqlite3_bind_text(insertStatement, 1, city.utf8String, -1, nil)
             sqlite3_bind_text(insertStatement, 2, country.utf8String, -1, nil)
-            sqlite3_bind_double(insertStatement, 3, Double(truncating: rating))
+            sqlite3_bind_int(insertStatement, 3, Int32(truncating: rating))
             sqlite3_bind_text(insertStatement, 4, review.utf8String, -1, nil)
   
        
@@ -272,6 +320,27 @@ class DatabaseHelper {
     func dropAccountTable() {
         let dropTableString = """
         DROP TABLE Account;
+        """
+        
+        var createTableStatement: OpaquePointer?
+        
+        if sqlite3_prepare_v2(db, dropTableString, -1, &createTableStatement, nil) == SQLITE_OK {
+          
+          if sqlite3_step(createTableStatement) == SQLITE_DONE {
+            print("\nDropped table successfuly")
+          } else {
+            print("\nCould not drop table.")
+          }
+        } else {
+          print("\nDROP TABLE statement could not be prepared.")
+        }
+       
+        sqlite3_finalize(createTableStatement)
+    }
+    
+    func dropReviewsTable() {
+        let dropTableString = """
+        DROP TABLE Review;
         """
         
         var createTableStatement: OpaquePointer?
@@ -384,6 +453,42 @@ class DatabaseHelper {
             print("\nQuery Result:")
             print("\(city) | \(countryCode) | \(region) | \(hasBeaches) | \(hasMountains) | \(isModern) | \(isHistoric) | \(isAdventurous) | \(isRelaxing) | \(isFamilyFriendly) | \(needTravelCompanion) | \(avgCost)")
             resultSet.append(Destination(city: city, countryCode: countryCode, region: region, hasBeaches: Int(hasBeaches), hasMountains: Int(hasMountains), isModern: Int(isModern), isHistoric: Int(isHistoric), isAdventurous: Int(isAdventurous), isRelaxing: Int(isRelaxing), isFamilyFriendly: Int(isFamilyFriendly), needTravelCompanion: Int(needTravelCompanion), cost: Int(avgCost)))
+        }
+        }
+        else {
+            
+          let errorMessage = String(cString: sqlite3_errmsg(db))
+          print("\nQuery is not prepared \(errorMessage)")
+        }
+        
+        sqlite3_finalize(queryStatement)
+        return resultSet
+    }
+    
+    func findReviews(fromQuery queryStr: String) -> [Review]? {
+        var queryStatement: OpaquePointer?
+        var resultSet = [Review]()
+
+        if sqlite3_prepare_v2(db, queryStr, -1, &queryStatement, nil) ==
+            SQLITE_OK {
+            
+          while sqlite3_step(queryStatement) == SQLITE_ROW {
+            
+            guard let queryResultCol1 = sqlite3_column_text(queryStatement, 0), let queryResultCol2 = sqlite3_column_text(queryStatement, 1), let queryResultCol3 = sqlite3_column_text(queryStatement, 2) else {
+              print("Query result is nil")
+              return nil
+            }
+            
+            // c.country_name, d.city, r.review
+            let countryName = String(cString: queryResultCol1)
+            let city = String(cString: queryResultCol2)
+            let review = String(cString: queryResultCol3)
+            let rating = sqlite3_column_int(queryStatement, 3)
+            
+            print("\nQuery Result:")
+            print("\(countryName) | \(city) | \(review) | \(rating)")
+            
+            resultSet.append(Review(city: city, country: countryName, message: review, rating: Int(rating)))
         }
         }
         else {

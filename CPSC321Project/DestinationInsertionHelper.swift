@@ -230,3 +230,34 @@ class DestionationInsertionHelper {
         return comprehensiveDestinationsDictionary
     }
 }
+
+class CountryInsertionHelper {
+    var countries = [
+        "CA": "Canada",
+        "US": "United States",
+        "MX": "Mexico",
+        "GB": "Great Britain",
+        "DK": "Denmark",
+        "IT": "Italy",
+        "FR": "France",
+        "DE": "Germany",
+        "SE": "Sweden",
+        "ES": "Spain",
+        "PT": "Portugal",
+        "JP": "Japan",
+        "CN": "China",
+        "IN": "India",
+        "KR": "South Korea",
+        "ZA": "South Africa",
+        "KE": "Kenya",
+        "EG": "Egypt",
+        "GT": "Guatemala",
+        "PA": "Panama",
+        "BZ": "Belize",
+        "AU": "Australia",
+        "NZ": "New Zealand",
+        "AE": "United Arab Emirates",
+        "SA": "Saudi Arabia",
+        "IL": "Israel"
+    ]
+}

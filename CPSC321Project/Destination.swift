@@ -21,6 +21,7 @@ class Destination: CustomStringConvertible {
     var isFamilyFriendly: Int
     var needTravelCompanion: Int
     var cost: Int
+    var numInOrder: Int?
     var description: String {
         let str = "Destination: (\(city), \(countryCode), \(region))"
         //, hasBeaches: \(hasBeaches), hasMountains: \(hasMountains), isModern: \(isModern), isHistoric: \(isHistoric), isAdventurous: \(isAdventurous), isRelaxing: \(isRelaxing), isFamilyFriendly: \(isFamilyFriendly), needCompanion: \(needTravelCompanion), avgCost: \(cost)"
@@ -40,5 +41,6 @@ class Destination: CustomStringConvertible {
         self.isFamilyFriendly = isFamilyFriendly
         self.needTravelCompanion = needTravelCompanion
         self.cost = cost
+        numInOrder = nil
     }
 }

@@ -73,7 +73,7 @@ class ReviewViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                 if result {
                     // destination exists in destinations table
                     print("desination exists, inserting review")
-                    db.insertReview(destination_city: city, destination_country_code: country, rating: rating, review: review)
+                    db.insertReview(destination_city: city, destination_country_code: country, rating: Int(rating), review: review)
                 } else {
                     // destination does not exist in Destinations table
                     print("destination does not exist")
