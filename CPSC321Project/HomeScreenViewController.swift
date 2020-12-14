@@ -26,7 +26,6 @@ class HomeScreenViewController: UIViewController {
     
     
     @IBAction func reviewDestinationButtonPressed(_ sender: UIButton) {
-        dbHelper?.createReviewsTable()
     }
     
     

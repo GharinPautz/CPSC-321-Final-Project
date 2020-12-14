@@ -15,7 +15,7 @@ class ReviewViewController: UIViewController {
     @IBOutlet var cityTextField: UITextField!
     @IBOutlet var countryTextField: UITextField!
     @IBOutlet var ratingSlider: UISlider!
-    @IBOutlet var reviewTextField: UITextField!
+    @IBOutlet var reviewTextView: UITextView!
     
     
     override func viewDidLoad() {
@@ -28,20 +28,13 @@ class ReviewViewController: UIViewController {
     @IBAction func submitReviewButtonPressed(_ sender: UIButton) {
         let rating = ratingSlider.value
         
-        if let city = cityTextField.text, let country = countryTextField.text, let review = reviewTextField.text {
+        if let city = cityTextField.text, let country = countryTextField.text, let review = reviewTextView.text {
             if let db = dbHelper {
             
                 db.insertReview(destination_city: city, destination_country_code: country, rating: rating, review: review)
             }
         }
         
-//
-//        if let username = usernameTextField.text, let password = passwordTextField.text, let name = firstNameTextField.text, let address = addressTextField.text, let city = cityTextField.text, let province = stateTextField.text, let country = countryTextField.text, let zipCode = zipcodeTextField.text {
-//
-//            if let db = dbHelper {
-//                db.insertAccount(username: username, password: password, name: name, city: city, province: province, address: address, country: country, zipCode: Int(zipCode)!)
-//            }
-//        }
         
     }
     /*

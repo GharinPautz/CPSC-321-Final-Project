@@ -31,6 +31,8 @@ class LoginViewController: UIViewController {
         destinationHelper.makeComprehensiveDestinationsDictionary()
         insertDestinations()
         dbHelper.createAccountsTable()
+        dbHelper.createReviewsTable()
+
 
     }
     
