@@ -22,17 +22,20 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        //dbHelper.dropDestinationsTable()
-        //dbHelper.dropReviewsTable()
+
+        // Set up all tables in application
+        dbHelper.createDestinationsTable()
+        dbHelper.createCountryTable()
+        dbHelper.createAccountsTable()
+        dbHelper.createReviewsTable()
         
-        //dbHelper.createDestinationsTable()
-        //dbHelper.createCountryTable()
-        //dbHelper.createAccountsTable()
-        //dbHelper.createReviewsTable()
-        //destinationHelper.makeComprehensiveDestinationsDictionary()
+        // Prepare the destination insertion helper
+        destinationHelper.makeComprehensiveDestinationsDictionary()
+        
+        // Insert prepopulated rows into tables
         dbHelper.insertDestination(city: "Kona", country_code: "US", region: "North America", has_beaches: 1, has_mountains: 1, is_modern: 1, is_historic: 0, is_adventurous: 1, is_relaxing: 1, is_family_friendly: 1, need_travel_companion: 0, avg_cost: 8)
-        //insertDestinations()
-       // insertCountries()
+        insertDestinations()
+        insertCountries()
 
     }
     
