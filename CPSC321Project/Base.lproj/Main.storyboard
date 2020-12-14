@@ -246,7 +246,6 @@
                                         <state key="normal" title="Create Account"/>
                                         <connections>
                                             <action selector="createButtonPressed:" destination="3Tw-8v-1i1" eventType="touchUpInside" id="IBB-6f-ZbW"/>
-                                            <segue destination="rqQ-c1-Kxz" kind="show" id="bTr-Fn-GuH"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -360,7 +359,7 @@
         <scene sceneID="Qlt-vt-HsZ">
             <objects>
                 <viewController id="Vvl-4E-VEO" customClass="ExploreDestinationsViewController" customModule="CPSC321Project" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="wp9-r6-N2X" customClass="Surve">
+                    <view key="view" contentMode="scaleToFill" id="wp9-r6-N2X" userLabel="Survey">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -860,7 +859,4 @@
             <point key="canvasLocation" x="137.68115942028987" y="129.91071428571428"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="lG9-pE-fIo"/>
-    </inferredMetricsTieBreakers>
 </document>

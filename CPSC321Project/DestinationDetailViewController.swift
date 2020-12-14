@@ -44,7 +44,8 @@ class DestinationDetailViewController: UIViewController {
     func getReviews() {
         
         if let place = destination {
-            let queryStr = "SELECT c.country_name, d.city, r.review, r.rating FROM Country c JOIN Destinations d USING (country_code) JOIN Review r ON (d.country_code = r.destination_country_code) WHERE d.city = '\(place.city)'"
+            
+            let queryStr = "SELECT c.country_name, d.city, r.review, r.rating FROM Country c JOIN Destinations d USING (country_code) JOIN Review r ON (d.city = r.destination_city) WHERE d.city = '\(place.city)'"
             
             print(queryStr)
             
@@ -57,7 +58,7 @@ class DestinationDetailViewController: UIViewController {
     func getAverageRating() {
         
         if let place = destination {
-            let queryStr = "SELECT AVG(r.rating) FROM Destinations d JOIN Review r ON (d.country_code = r.destination_country_code)"
+            let queryStr = "SELECT AVG(r.rating) FROM Destinations d JOIN Review r ON (d.city = r.destination_city) WHERE d.city = '\(place.city)'"
             
             print(queryStr)
             

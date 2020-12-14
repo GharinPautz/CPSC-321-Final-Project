@@ -34,6 +34,8 @@ class CreateAccountViewController: UIViewController {
                 db.insertAccount(username: username, password: password, firstName: firstName, lastName: lastName, address: address, city: city, countryCode: countryCode, zipCode: Int(zipCode)!)
             }
         }
+        
+        _ = navigationController?.popViewController(animated: true)
     }
     
     /*
