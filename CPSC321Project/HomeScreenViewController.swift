@@ -49,7 +49,14 @@ class HomeScreenViewController: UIViewController {
                 if let reviewVC = segue.destination as? ReviewViewController {
                     reviewVC.dbHelper = dbHelper
                 }
-            } 
+            }
+            else if identifier == "findDestinationSegue" {
+                print("In find destination segue")
+                
+                if let exploreDestionationVC = segue.destination as? ExploreDestinationsViewController {
+                    exploreDestionationVC.dbHelper = dbHelper
+                }
+            }
         }
     }
 

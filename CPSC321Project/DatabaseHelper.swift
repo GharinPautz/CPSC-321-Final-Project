@@ -355,4 +355,44 @@ class DatabaseHelper {
         return resultsArray
     }
 
+    func findDestionations(fromQuery queryStr: String) -> [Destination]? {
+        var queryStatement: OpaquePointer?
+        var resultSet = [Destination]()
+
+        if sqlite3_prepare_v2(db, queryStr, -1, &queryStatement, nil) ==
+            SQLITE_OK {
+            
+          while sqlite3_step(queryStatement) == SQLITE_ROW {
+            
+            guard let queryResultCol1 = sqlite3_column_text(queryStatement, 0), let queryResultCol2 = sqlite3_column_text(queryStatement, 1), let queryResultCol3 = sqlite3_column_text(queryStatement, 2) else {
+              print("Query result is nil")
+              return nil
+            }
+            let city = String(cString: queryResultCol1)
+            let countryCode = String(cString: queryResultCol2)
+            let region = String(cString: queryResultCol3)
+            let hasBeaches = sqlite3_column_int(queryStatement, 3)
+            let hasMountains = sqlite3_column_int(queryStatement, 4)
+            let isModern = sqlite3_column_int(queryStatement, 5)
+            let isHistoric = sqlite3_column_int(queryStatement, 6)
+            let isAdventurous = sqlite3_column_int(queryStatement, 7)
+            let isRelaxing = sqlite3_column_int(queryStatement, 8)
+            let isFamilyFriendly = sqlite3_column_int(queryStatement, 9)
+            let needTravelCompanion = sqlite3_column_int(queryStatement, 10)
+            let avgCost = sqlite3_column_int(queryStatement, 11)
+            
+            print("\nQuery Result:")
+            print("\(city) | \(countryCode) | \(region) | \(hasBeaches) | \(hasMountains) | \(isModern) | \(isHistoric) | \(isAdventurous) | \(isRelaxing) | \(isFamilyFriendly) | \(needTravelCompanion) | \(avgCost)")
+            resultSet.append(Destination(city: city, countryCode: countryCode, region: region, hasBeaches: Int(hasBeaches), hasMountains: Int(hasMountains), isModern: Int(isModern), isHistoric: Int(isHistoric), isAdventurous: Int(isAdventurous), isRelaxing: Int(isRelaxing), isFamilyFriendly: Int(isFamilyFriendly), needTravelCompanion: Int(needTravelCompanion), cost: Int(avgCost)))
+        }
+        }
+        else {
+            
+          let errorMessage = String(cString: sqlite3_errmsg(db))
+          print("\nQuery is not prepared \(errorMessage)")
+        }
+        
+        sqlite3_finalize(queryStatement)
+        return resultSet
+    }
 }

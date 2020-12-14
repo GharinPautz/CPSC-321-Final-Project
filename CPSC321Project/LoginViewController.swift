@@ -21,11 +21,13 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        // KELLIE DO AFTER PULL
-        // Uncomment next line, run to make new account table, then delete this line
-        //dbHelper.dropAccountTable()
-        
         // Set up destinations table
+        //dbHelper.dropDestinationsTable()
+        //dbHelper.createDestinationsTable()
+        //destinationHelper.makeComprehensiveDestinationsDictionary()
+        //insertDestinations()
+        //dbHelper.createAccountsTable()
+        dbHelper.insertDestination(city: "Kona", country_code: "US", region: "North America", has_beaches: 1, has_mountains: 1, is_modern: 1, is_historic: 0, is_adventurous: 1, is_relaxing: 1, is_family_friendly: 1, need_travel_companion: 0, avg_cost: 8)
         dbHelper.dropDestinationsTable()
         dbHelper.createDestinationsTable()
         destinationHelper.makeComprehensiveDestinationsDictionary()
