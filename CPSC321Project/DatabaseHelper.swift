@@ -333,5 +333,26 @@ class DatabaseHelper {
           sqlite3_finalize(queryStatement)
         return resultsArray
     }
+    
+    func getAllCities() -> [String]{
+        var queryStatement: OpaquePointer?
+        var resultsArray: [String] = [String]()
+        
+        let queryStr = "SELECT DISTINCT city FROM Destinations"
+        
+        if sqlite3_prepare_v2(db, queryStr, -1, &queryStatement, nil) == SQLITE_OK {
+            while (sqlite3_step(queryStatement) == SQLITE_ROW) {
+                if let countryCodeResult = sqlite3_column_text(queryStatement, 0){
+                    let countryCode = String(cString: countryCodeResult)
+                    resultsArray.append(countryCode)
+                }
+            }
+          } else {
+              let errorMessage = String(cString: sqlite3_errmsg(db))
+              print("\nQuery is not prepared \(errorMessage)")
+          }
+          sqlite3_finalize(queryStatement)
+        return resultsArray
+    }
 
 }

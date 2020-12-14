@@ -702,26 +702,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="7OQ-eo-bjd">
-                                <rect key="frame" x="16" y="104" width="382" height="379"/>
+                                <rect key="frame" x="16" y="104" width="382" height="420"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="A03-5O-Jry">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="75"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0GO-G3-aPx">
-                                                <rect key="frame" x="0.0" y="0.0" width="35" height="34"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="35" height="75"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EOf-CU-1rl">
-                                                <rect key="frame" x="50" y="0.0" width="332" height="34"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
-                                            </textField>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dph-3O-8XR">
+                                                <rect key="frame" x="50" y="0.0" width="332" height="75"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="75" id="Ber-o4-qZ8"/>
+                                                </constraints>
+                                            </pickerView>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="8FF-om-5Rd">
-                                        <rect key="frame" x="0.0" y="49" width="382" height="75"/>
+                                        <rect key="frame" x="0.0" y="90" width="382" height="75"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country Code:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKn-UC-UGB">
                                                 <rect key="frame" x="0.0" y="0.0" width="183.5" height="75"/>
@@ -729,7 +730,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pnx-AB-bLn">
+                                            <pickerView tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pnx-AB-bLn">
                                                 <rect key="frame" x="198.5" y="0.0" width="183.5" height="75"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="75" id="eN3-Jy-DnH"/>
@@ -738,7 +739,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="8Uj-Te-3kV">
-                                        <rect key="frame" x="0.0" y="139" width="382" height="30"/>
+                                        <rect key="frame" x="0.0" y="180" width="382" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Rating:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fK-Qp-p5c">
                                                 <rect key="frame" x="0.0" y="0.0" width="53.5" height="30"/>
@@ -767,7 +768,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="240" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Bf0-BG-nyZ">
-                                        <rect key="frame" x="0.0" y="184" width="382" height="150"/>
+                                        <rect key="frame" x="0.0" y="225" width="382" height="150"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TKT-3z-lHo">
                                                 <rect key="frame" x="0.0" y="0.0" width="59" height="150"/>
@@ -789,7 +790,7 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6yI-nv-dyp">
-                                        <rect key="frame" x="0.0" y="349" width="382" height="30"/>
+                                        <rect key="frame" x="0.0" y="390" width="382" height="30"/>
                                         <state key="normal" title="Submit Review"/>
                                         <connections>
                                             <action selector="submitReviewButtonPressed:" destination="s9q-o8-hQQ" eventType="touchUpInside" id="UIb-cZ-So1"/>
@@ -825,7 +826,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="cityTextField" destination="EOf-CU-1rl" id="miO-Xh-LH9"/>
+                        <outlet property="cityPicker" destination="Dph-3O-8XR" id="7fp-Bs-CxS"/>
                         <outlet property="countryCodePicker" destination="Pnx-AB-bLn" id="zTW-dS-PzO"/>
                         <outlet property="ratingSlider" destination="63K-Zg-rhD" id="oaG-zY-SmN"/>
                         <outlet property="reviewTextView" destination="gRN-Rv-JS7" id="Hxy-dv-RmJ"/>

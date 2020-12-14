@@ -13,12 +13,13 @@ class ReviewViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     var dbHelper: DatabaseHelper? = nil
 
     
-    @IBOutlet var cityTextField: UITextField!
+    @IBOutlet var cityPicker: UIPickerView!
     @IBOutlet var countryCodePicker: UIPickerView!
     @IBOutlet var ratingSlider: UISlider!
     @IBOutlet var reviewTextView: UITextView!
     
     var countryCodePickerData: [String] = [String]()
+    var cityPickerData: [String] = [String]()
     
     
     override func viewDidLoad() {
@@ -29,10 +30,14 @@ class ReviewViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         if let dbHelperUnwrapped = dbHelper {
             countryCodePickerData = dbHelperUnwrapped.getAllCountryCodes()
-            print(countryCodePickerData)
+            cityPickerData = dbHelperUnwrapped.getAllCities()
         }
+        
+        
         self.countryCodePicker.delegate = self
         self.countryCodePicker.dataSource = self
+        self.cityPicker.delegate = self
+        self.cityPicker.dataSource = self
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -40,20 +45,29 @@ class ReviewViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return countryCodePickerData.count
+        if pickerView.tag == 0 {
+            return cityPickerData.count
+        } else {
+            return countryCodePickerData.count
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return countryCodePickerData[row]
+        if pickerView.tag == 0 {
+            return cityPickerData[row]
+        } else {
+            return countryCodePickerData[row]
+        }
     }
     
 
     @IBAction func submitReviewButtonPressed(_ sender: UIButton) {
         let rating = ratingSlider.value
         
-        if let city = cityTextField.text, let review = reviewTextView.text {
+        if let review = reviewTextView.text {
             if let db = dbHelper {
                 let country = countryCodePickerData[countryCodePicker.selectedRow(inComponent: 0)]
+                let city = cityPickerData[cityPicker.selectedRow(inComponent: 0)]
                 let queryStr = "SELECT city, country_code FROM Destinations WHERE city = \"\(city)\" AND country_code = \"\(country)\""
                 let result = db.existsQuery(withQuery: queryStr)
                 if result {
