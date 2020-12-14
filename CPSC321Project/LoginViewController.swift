@@ -50,6 +50,9 @@ class LoginViewController: UIViewController {
                 } else {
                     // username does not exist or password does not match- do not login user
                     print("username doesn't exist")
+                    let alertController: UIAlertController = UIAlertController(title: "Incorrect login information", message: "There is no account with the given account information", preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    present(alertController, animated: true, completion: nil)
                     return false
                 }
             }
