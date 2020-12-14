@@ -289,4 +289,28 @@ class DatabaseHelper {
        
         sqlite3_finalize(createTableStatement)
     }
+    
+    
+    func userExistsQuery(withQuery queryStr: String) -> Bool{
+      var queryStatement: OpaquePointer?
+    
+      if sqlite3_prepare_v2(db, queryStr, -1, &queryStatement, nil) ==
+          SQLITE_OK {
+        
+          if sqlite3_step(queryStatement) == SQLITE_ROW {
+            return true
+          } else {
+              print("\nQuery returned no results.")
+              return false
+          }
+      } else {
+          // 6
+        let errorMessage = String(cString: sqlite3_errmsg(db))
+        print("\nQuery is not prepared \(errorMessage)")
+        return false
+      }
+      // 7
+      sqlite3_finalize(queryStatement)
+    }
+
 }

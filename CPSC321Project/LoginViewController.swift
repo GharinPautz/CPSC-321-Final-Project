@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SQLite3
 
 class LoginViewController: UIViewController {
     var dbHelper = DatabaseHelper()
@@ -29,13 +30,38 @@ class LoginViewController: UIViewController {
         dbHelper.createDestinationsTable()
         destinationHelper.makeComprehensiveDestinationsDictionary()
         insertDestinations()
+        dbHelper.createAccountsTable()
+
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "loginSegue" {
+            // check username exists & password matches
+            // get entered username & password
+            if let username = usernameTextField.text, let password = passwordTextField.text {
+                let queryStr = "SELECT username, password FROM Account WHERE username = \"\(username)\" AND password = \"\(password)\""
+                let result = dbHelper.userExistsQuery(withQuery: queryStr)
+                if result {
+                    // username exists & password matches
+                    print("username exists & password matches")
+                    return true
+                } else {
+                    // username does not exist or password does not match- do not login user
+                    print("username doesn't exist")
+                    return false
+                }
+            }
+
+        }
+        return true
     }
 
     @IBAction func loginButtonPressed(_ sender: UIButton) {
+        
+        
     }
     
     @IBAction func createAccountButtonPressed(_ sender: UIButton) {
-        dbHelper.createAccountsTable()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
