@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
+        <!--Travelr-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="CPSC321Project" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,16 +17,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="125" translatesAutoresizingMaskIntoConstraints="NO" id="MDm-hK-W4n">
-                                <rect key="frame" x="16" y="104" width="382" height="742"/>
+                                <rect key="frame" x="16" y="329" width="382" height="238"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Travelr" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kk1-bF-PUS">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="iq6-U2-FlK">
-                                        <rect key="frame" x="0.0" y="145.5" width="382" height="83"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="83"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2KB-y5-BNZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="34"/>
@@ -63,10 +57,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="BDA-oi-mrp">
-                                        <rect key="frame" x="0.0" y="353.5" width="382" height="388.5"/>
+                                        <rect key="frame" x="0.0" y="208" width="382" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rtV-jV-X5K">
-                                                <rect key="frame" x="0.0" y="0.0" width="166" height="388.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="166" height="30"/>
                                                 <state key="normal" title="Login"/>
                                                 <connections>
                                                     <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JRS-xn-Kz8"/>
@@ -74,7 +68,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bnk-NM-b7G">
-                                                <rect key="frame" x="216" y="0.0" width="166" height="388.5"/>
+                                                <rect key="frame" x="216" y="0.0" width="166" height="30"/>
                                                 <state key="normal" title="Create Account"/>
                                                 <connections>
                                                     <action selector="createAccountButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dUq-PQ-tE1"/>
@@ -86,21 +80,19 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="BDA-oi-mrp" firstAttribute="leading" secondItem="MDm-hK-W4n" secondAttribute="leading" id="GB5-cI-fYk"/>
-                                    <constraint firstItem="Kk1-bF-PUS" firstAttribute="centerX" secondItem="MDm-hK-W4n" secondAttribute="centerX" id="KhE-ro-AFa"/>
                                     <constraint firstItem="iq6-U2-FlK" firstAttribute="leading" secondItem="MDm-hK-W4n" secondAttribute="leading" id="xso-vm-cyD"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="MDm-hK-W4n" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="9lz-rp-2QO"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="MDm-hK-W4n" secondAttribute="bottom" constant="16" id="R0F-Zd-Ae7"/>
+                            <constraint firstItem="MDm-hK-W4n" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="8NW-qZ-70f"/>
                             <constraint firstItem="MDm-hK-W4n" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="bFe-Ja-h2c"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MDm-hK-W4n" secondAttribute="trailing" constant="16" id="sZX-xU-a77"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="VA3-Aa-lDQ"/>
+                    <navigationItem key="navigationItem" title="Travelr" id="VA3-Aa-lDQ"/>
                     <connections>
                         <outlet property="passwordTextField" destination="RcY-78-BrK" id="61X-JC-y5E"/>
                         <outlet property="usernameTextField" destination="Yaz-WF-f9v" id="KmN-2w-skK"/>
@@ -301,9 +293,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Px8-9s-qWw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1778.2608695652175" y="128.57142857142856"/>
+            <point key="canvasLocation" x="1048" y="866"/>
         </scene>
-        <!--Home Screen View Controller-->
+        <!--Home-->
         <scene sceneID="hr0-6U-36C">
             <objects>
                 <viewController id="rqQ-c1-Kxz" customClass="HomeScreenViewController" customModule="CPSC321Project" customModuleProvider="target" sceneMemberID="viewController">
@@ -321,7 +313,7 @@
                                 <rect key="frame" x="16" y="140.5" width="382" height="705.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhG-oU-2RG">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="188.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="318"/>
                                         <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Find your destination">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -332,7 +324,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLO-jd-e4p">
-                                        <rect key="frame" x="0.0" y="258.5" width="382" height="188.5"/>
+                                        <rect key="frame" x="0.0" y="388" width="382" height="317.5"/>
                                         <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Leave a review for a destionation">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -340,17 +332,6 @@
                                         <connections>
                                             <action selector="reviewDestinationButtonPressed:" destination="rqQ-c1-Kxz" eventType="touchUpInside" id="E4O-P8-kaX"/>
                                             <segue destination="s9q-o8-hQQ" kind="show" identifier="reviewSegue" id="6Qj-x8-oNY"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBe-eM-ByA">
-                                        <rect key="frame" x="0.0" y="517" width="382" height="188.5"/>
-                                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="View Past Results">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="viewPastResultsButtonPressed:" destination="rqQ-c1-Kxz" eventType="touchUpInside" id="TIG-pO-rM7"/>
-                                            <segue destination="vIV-A2-2QJ" kind="show" identifier="viewResultsSegue" id="Lx8-qu-zh9"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -369,13 +350,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4hg-tX-Hh4"/>
                     </view>
-                    <navigationItem key="navigationItem" id="epq-MO-7fE"/>
+                    <navigationItem key="navigationItem" title="Home" id="epq-MO-7fE"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Htb-3K-4DD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2443.4782608695655" y="128.57142857142856"/>
+            <point key="canvasLocation" x="2077" y="130"/>
         </scene>
-        <!--Explore Destinations View Controller-->
+        <!--Find-->
         <scene sceneID="Qlt-vt-HsZ">
             <objects>
                 <viewController id="Vvl-4E-VEO" customClass="ExploreDestinationsViewController" customModule="CPSC321Project" customModuleProvider="target" sceneMemberID="viewController">
@@ -552,13 +533,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7cO-B8-RiQ"/>
                     </view>
-                    <navigationItem key="navigationItem" id="jGr-KV-ELh">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="u6b-SZ-rzM">
-                            <connections>
-                                <segue destination="vIV-A2-2QJ" kind="show" id="Sns-ll-Vgn"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Find" id="jGr-KV-ELh"/>
                     <connections>
                         <outlet property="hasTravelCompanionSwitch" destination="nvy-Ea-wVX" id="z88-R2-56c"/>
                         <outlet property="isAdventurousSwitch" destination="ZoK-Du-O7q" id="APv-SY-fQU"/>
@@ -573,9 +548,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dyE-Kq-5bO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3162.3188405797105" y="125.89285714285714"/>
+            <point key="canvasLocation" x="2997" y="-469"/>
         </scene>
-        <!--Destination Table View Controller-->
+        <!--Destinations-->
         <scene sceneID="TdJ-8z-mvK">
             <objects>
                 <viewController id="vIV-A2-2QJ" customClass="DestinationTableViewController" customModule="CPSC321Project" customModuleProvider="target" sceneMemberID="viewController">
@@ -639,14 +614,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1bl-v4-QvO"/>
                     </view>
-                    <navigationItem key="navigationItem" id="bT6-Iv-kf3"/>
+                    <navigationItem key="navigationItem" title="Destinations" id="bT6-Iv-kf3"/>
                     <connections>
                         <outlet property="tableView" destination="hlP-tj-czT" id="fpq-H6-5vg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1qc-82-ufQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3965.217391304348" y="128.57142857142856"/>
+            <point key="canvasLocation" x="3825" y="-469"/>
         </scene>
         <!--Destination Detail View Controller-->
         <scene sceneID="lJE-2d-wis">
@@ -665,20 +640,26 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review # of tot." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbE-lU-5Zx">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average Rating" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3O-eb-sbX">
                                         <rect key="frame" x="0.0" y="97.5" width="382" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ed2-Wb-Yjw">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review # of tot." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbE-lU-5Zx">
                                         <rect key="frame" x="0.0" y="195" width="382" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ed2-Wb-Yjw">
+                                        <rect key="frame" x="0.0" y="292.5" width="382" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="240" text="Review" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uro-uf-rx5">
-                                        <rect key="frame" x="0.0" y="292.5" width="382" height="342.5"/>
+                                        <rect key="frame" x="0.0" y="390" width="382" height="245"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -693,6 +674,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="MAR-81-xaa" firstAttribute="centerX" secondItem="HvI-tP-oM6" secondAttribute="centerX" id="2NE-Mz-o0U"/>
+                                    <constraint firstItem="g3O-eb-sbX" firstAttribute="centerX" secondItem="HvI-tP-oM6" secondAttribute="centerX" id="APy-O0-ukF"/>
                                     <constraint firstItem="uro-uf-rx5" firstAttribute="centerX" secondItem="HvI-tP-oM6" secondAttribute="centerX" id="Msz-kQ-WUz"/>
                                     <constraint firstItem="Ed2-Wb-Yjw" firstAttribute="centerX" secondItem="HvI-tP-oM6" secondAttribute="centerX" id="OWV-uW-4iX"/>
                                     <constraint firstItem="VbE-lU-5Zx" firstAttribute="centerX" secondItem="HvI-tP-oM6" secondAttribute="centerX" id="dn5-jd-5zF"/>
@@ -711,6 +693,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="wnW-7z-JCv"/>
                     <connections>
+                        <outlet property="averageRatingLabel" destination="g3O-eb-sbX" id="Ihb-9t-pN7"/>
                         <outlet property="destinationNameLabel" destination="MAR-81-xaa" id="ZHr-Q8-Erh"/>
                         <outlet property="ratingLabel" destination="Ed2-Wb-Yjw" id="oku-DJ-4Oo"/>
                         <outlet property="reviewLabel" destination="uro-uf-rx5" id="OIX-9X-LtF"/>
@@ -719,9 +702,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zIc-E6-8GQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4692.753623188406" y="125.89285714285714"/>
+            <point key="canvasLocation" x="4670" y="-469"/>
         </scene>
-        <!--Review View Controller-->
+        <!--Review-->
         <scene sceneID="nmz-gI-Gzo">
             <objects>
                 <viewController id="s9q-o8-hQQ" customClass="ReviewViewController" customModule="CPSC321Project" customModuleProvider="target" sceneMemberID="viewController">
@@ -846,13 +829,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="V8n-Fg-Fm4"/>
                     </view>
-                    <navigationItem key="navigationItem" id="RDD-Xh-xAd">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="9jt-Kf-gVo">
-                            <connections>
-                                <segue destination="fyP-BP-JBV" kind="show" id="Pce-ly-ZOq"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Review" id="RDD-Xh-xAd"/>
                     <connections>
                         <outlet property="cityPicker" destination="Dph-3O-8XR" id="7fp-Bs-CxS"/>
                         <outlet property="countryCodePicker" destination="Pnx-AB-bLn" id="zTW-dS-PzO"/>
@@ -862,7 +839,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jbO-gt-bq5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5365.217391304348" y="125.89285714285714"/>
+            <point key="canvasLocation" x="3048" y="321"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EyW-fa-TW9">
@@ -884,8 +861,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="hmH-oe-RMj"/>
-        <segue reference="on2-Pg-5ma"/>
         <segue reference="lG9-pE-fIo"/>
     </inferredMetricsTieBreakers>
 </document>

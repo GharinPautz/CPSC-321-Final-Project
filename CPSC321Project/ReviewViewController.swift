@@ -84,7 +84,7 @@ class ReviewViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             }
         }
         
-        
+        _ = navigationController?.popViewController(animated: true)
     }
     /*
     // MARK: - Navigation

@@ -13,19 +13,22 @@ class DestinationDetailViewController: UIViewController {
     var destination: Destination? = nil
     var reviews: [Review]? = nil
     var currIndex = 0
+    var avgRating: Float = 0.0
 
     @IBOutlet var destinationNameLabel: UILabel!
     @IBOutlet var reviewNumberLabel: UILabel!
     @IBOutlet var reviewLabel: UILabel!
     @IBOutlet var ratingLabel: UILabel!
+    @IBOutlet var averageRatingLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        getAverageRating()
         getReviews()
         updateUI()
+        print("Average: \(avgRating)")
     }
     
     /*
@@ -41,13 +44,28 @@ class DestinationDetailViewController: UIViewController {
     func getReviews() {
         
         if let place = destination {
-            let queryStr = "SELECT c.country_name, d.city, r.review, r.rating FROM Country c JOIN Destinations d USING (country_code) JOIN Review r ON (d.country_code = r. destination_country_code) WHERE d.city = '\(place.city)'"
+            let queryStr = "SELECT c.country_name, d.city, r.review, r.rating FROM Country c JOIN Destinations d USING (country_code) JOIN Review r ON (d.country_code = r.destination_country_code) WHERE d.city = '\(place.city)'"
             
             print(queryStr)
             
             reviews = dbHelper?.findReviews(fromQuery: queryStr)
             
             print(reviews?.count)
+        }
+    }
+    
+    func getAverageRating() {
+        
+        if let place = destination {
+            let queryStr = "SELECT AVG(r.rating) FROM Destinations d JOIN Review r ON (d.country_code = r.destination_country_code)"
+            
+            print(queryStr)
+            
+            var avg = dbHelper?.getAverageRating(queryStr: queryStr)
+            
+            if let ratingAvg = avg {
+                avgRating = ratingAvg
+            }
         }
     }
     
@@ -64,7 +82,8 @@ class DestinationDetailViewController: UIViewController {
                 destinationNameLabel.text = "\(reviewsArray[currIndex].city), \(reviewsArray[currIndex].country)"
                 reviewNumberLabel.text = "Review \(currIndex + 1) of \(reviewsArray.count)"
                 reviewLabel.text = "\(reviewsArray[currIndex].message)"
-                ratingLabel.text = "\(reviewsArray[currIndex].rating) out of 5"
+                ratingLabel.text = "Review Rating: \(reviewsArray[currIndex].rating)⭐️ out of 5⭐️"
+                averageRatingLabel.text = "Average Rating: \(avgRating)⭐️"
             }
             else {
                 if let place = destination {
@@ -72,6 +91,7 @@ class DestinationDetailViewController: UIViewController {
                     reviewNumberLabel.text = ""
                     reviewLabel.text = "No reviews for \(place.city) yet. How about you add one?"
                     ratingLabel.text = ""
+                    averageRatingLabel.text = ""
                 }
             }
         }

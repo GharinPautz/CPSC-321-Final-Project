@@ -386,7 +386,7 @@ class DatabaseHelper {
         var queryStatement: OpaquePointer?
         var resultsArray: [String] = [String]()
         
-        let queryStr = "SELECT DISTINCT country_code FROM Destinations"
+        let queryStr = "SELECT DISTINCT country_code FROM Destinations ORDER BY country_code"
         
         if sqlite3_prepare_v2(db, queryStr, -1, &queryStatement, nil) == SQLITE_OK {
             while (sqlite3_step(queryStatement) == SQLITE_ROW) {
@@ -499,5 +499,30 @@ class DatabaseHelper {
         
         sqlite3_finalize(queryStatement)
         return resultSet
+    }
+    
+    func getAverageRating(queryStr: String) -> Float? {
+       var queryStatement: OpaquePointer?
+       
+       if sqlite3_prepare_v2(db, queryStr, -1, &queryStatement, nil) ==
+           SQLITE_OK {
+         
+         if sqlite3_step(queryStatement) == SQLITE_ROW {
+           
+           let avgRating = Float(sqlite3_column_double(queryStatement, 0))
+           
+           print(avgRating)
+            return avgRating
+       } else {
+           print("\nQuery returned no results.")
+       }
+       } else {
+           // 6
+         let errorMessage = String(cString: sqlite3_errmsg(db))
+         print("\nQuery is not prepared \(errorMessage)")
+       }
+       // 7
+       sqlite3_finalize(queryStatement)
+        return nil
     }
 }
