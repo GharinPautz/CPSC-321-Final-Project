@@ -22,14 +22,8 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        // Set up destinations table
-        //dbHelper.dropDestinationsTable()
-        //dbHelper.createDestinationsTable()
-        //destinationHelper.makeComprehensiveDestinationsDictionary()
-        //insertDestinations()
-        //dbHelper.createAccountsTable()
         dbHelper.dropDestinationsTable()
-        dbHelper.dropReviewsTable()
+        //dbHelper.dropReviewsTable()
         
         dbHelper.createDestinationsTable()
         dbHelper.createCountryTable()
