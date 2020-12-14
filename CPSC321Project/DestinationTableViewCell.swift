@@ -9,6 +9,9 @@
 import UIKit
 
 class DestinationTableViewCell: UITableViewCell {
+    
+    @IBOutlet var destinationNumberLabel: UILabel!
+    @IBOutlet var destinationNameLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,4 +24,8 @@ class DestinationTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    func update(with destination: Destination) {
+        destinationNumberLabel.text = "1"
+        destinationNameLabel.text = "\(destination.city), \(destination.countryCode)"
+    }
 }

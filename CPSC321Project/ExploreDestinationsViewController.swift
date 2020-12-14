@@ -114,6 +114,19 @@ class ExploreDestinationsViewController: UIViewController, UIPickerViewDelegate,
         destinations = dbHelper?.findDestionations(fromQuery: queryStr)
         print(destinations)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "tableViewSegue" {
+                if let destinationsArray = destinations {
+                    if let destinationTableViewVC = segue.destination as? DestinationTableViewController {
+                        destinationTableViewVC.destinations = destinationsArray
+                    }
+                }
+            }
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

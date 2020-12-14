@@ -8,14 +8,32 @@
 
 import UIKit
 
-class DestinationTableViewController: UIViewController {
+class DestinationTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    var destinations = [Destination]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return destinations.count
+        }
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let row = indexPath.row
+        let place = destinations[row]
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DestinationCell", for: indexPath) as! DestinationTableViewCell
+        
+        cell.update(with: place)
+        return cell
+    }
 
     /*
     // MARK: - Navigation
