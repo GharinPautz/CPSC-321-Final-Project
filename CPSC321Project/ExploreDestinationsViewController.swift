@@ -29,6 +29,7 @@ class ExploreDestinationsViewController: UIViewController, UIPickerViewDelegate,
         self.regionPicker.delegate = self
         self.regionPicker.dataSource = self
         
+        
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

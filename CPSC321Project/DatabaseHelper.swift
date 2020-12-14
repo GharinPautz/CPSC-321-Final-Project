@@ -291,7 +291,7 @@ class DatabaseHelper {
     }
     
     
-    func userExistsQuery(withQuery queryStr: String) -> Bool{
+    func existsQuery(withQuery queryStr: String) -> Bool{
       var queryStatement: OpaquePointer?
     
       if sqlite3_prepare_v2(db, queryStr, -1, &queryStatement, nil) ==

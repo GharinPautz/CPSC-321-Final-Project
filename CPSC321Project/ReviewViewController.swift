@@ -30,8 +30,19 @@ class ReviewViewController: UIViewController {
         
         if let city = cityTextField.text, let country = countryTextField.text, let review = reviewTextView.text {
             if let db = dbHelper {
-            
-                db.insertReview(destination_city: city, destination_country_code: country, rating: rating, review: review)
+                let queryStr = "SELECT city, country_code FROM Destinations WHERE city = \"\(city)\" AND country_code = \"\(country)\""
+                let result = db.existsQuery(withQuery: queryStr)
+                if result {
+                    // destination exists in destinations table
+                    print("desination exists, inserting review")
+                    db.insertReview(destination_city: city, destination_country_code: country, rating: rating, review: review)
+                } else {
+                    // destination does not exist in Destinations table
+                    print("destination does not exist")
+                    let alertController: UIAlertController = UIAlertController(title: "Destination does not exist", message: "A destination with the given city and country code does not exist in our database", preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    present(alertController, animated: true, completion: nil)
+                }
             }
         }
         

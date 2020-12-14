@@ -42,7 +42,7 @@ class LoginViewController: UIViewController {
             // get entered username & password
             if let username = usernameTextField.text, let password = passwordTextField.text {
                 let queryStr = "SELECT username, password FROM Account WHERE username = \"\(username)\" AND password = \"\(password)\""
-                let result = dbHelper.userExistsQuery(withQuery: queryStr)
+                let result = dbHelper.existsQuery(withQuery: queryStr)
                 if result {
                     // username exists & password matches
                     print("username exists & password matches")
